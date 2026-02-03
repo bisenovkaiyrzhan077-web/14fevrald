@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Приглашение ❤️</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#ff5f9e,#ff8fa3);
+      font-family:Arial, sans-serif;
+      padding:16px;
+    }
+    .card{
+      width:100%;
+      max-width:360px;
+      background:#fff;
+      border-radius:20px;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,.2);
+    }
+    h1{color:#ff2e63;}
+    .heart{font-size:44px;}
+    p{color:#333;}
+    .details{font-size:14px;color:#555;margin:10px 0;}
+    button{
+      width:100%;
+      padding:14px;
+      margin-top:10px;
+      font-size:16px;
+      border-radius:30px;
+      border:none;
+      cursor:pointer;
+    }
+    .yes{background:#ff2e63;color:#fff;}
+    .no{background:#fff;color:#ff2e63;border:2px solid #ffd1dc;}
+    textarea{
+      width:100%;
+      margin-top:10px;
+      padding:10px;
+      border-radius:10px;
+      border:1px solid #ccc;
+      font-size:15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>14 ақпанға шақыру</h1>
+
+  <p>Осы кешті бірге өткізейік ✨<br>Киноға барайық 🎬🍿</p>
+
+  <div class="details">
+    📅 14 ақпан<br>
+    ⏰ 19:00<br>
+    📍 Кинотеатр
+  </div>
+
+  <button class="yes" onclick="yes()">Келемін ❤️</button>
+  <button class="no" onclick="showReason()">Бара алмаймын 😔</button>
+
+  <div id="resp"></div>
+</div>
+
+<script>
+function yes(){
+  location.href =
+   "https://wa.me/77751926812?text=" +
+   encodeURIComponent("Мен келісемін ❤️ Келемін!");
+}
+
+function showReason(){
+  document.getElementById("resp").innerHTML =
+    '<textarea id="reason" rows="3" placeholder="Себебі..."></textarea>' +
+    '<button class="no" onclick="sendReason()">Жіберу</button>';
+}
+
+function sendReason(){
+  var r = document.getElementById("reason").value || "Себепсіз";
+  location.href =
+   "https://wa.me/77751926812?text=" +
+   encodeURIComponent("Кешір 😔 бара алмаймын. Себебі: " + r);
+}
+</script>
+
+</body>
+</html>
